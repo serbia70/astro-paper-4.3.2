@@ -1,22 +1,29 @@
 backend:
   name: github
-  repo: username/repo
-  branch: main # Branch to update (optional; defaults to master)
-  site_domain: https://example.com
-  base_url: https://example.com
-  auth_endpoint: /api/auth
-media_folder: static/img
-public_folder: /img
+  branch: main
+  repo: serbia70/astro-paper-4.3.2
+  site_domain: astro-paper-4.3.2.vercel.app
+  base_url: astro-paper-4.3.2.vercel.app/
+  auth_endpoint: oauth
+
+media_folder: public/uploads
+public_folder: /uploads
+
 collections:
-  - name: 'blog'
-    label: 'Blog'
-    folder: 'content/blog'
-    create: true
-    slug: '{{slug}}'
-    editor:
-      preview: false
-    fields:
-      - { label: 'Title', name: 'title', widget: 'string' }
-      - { label: 'Publish Date', name: 'date', widget: 'datetime' }
-      - { label: 'Description', name: 'description', widget: 'string' }
-      - { label: 'Body', name: 'body', widget: 'markdown' }
+  - name: "blog" # Used in routes, e.g., /admin/collections/blog
+    label: "blog" # Used in the UI
+    folder: "src/content/blog" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    preview_path_date_field: "date"
+    slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    fields: # The fields for each document, usually in front matter
+      - { label: "作者", name: "Author", widget: "string", required: false }
+      - { label: "精选", name: "featured", widget: "boolean", required: false }
+      - { label: "slug", name: "slug", widget: "string" }
+      - { label: "图像", name: "img", widget: "image", required: false}
+      - { label: "发布日期", name: "pubDatetime", widget: "datetime" }
+      - { label: "更新日期", name: "modDatetime", widget: "datetime", required: false}
+      - { label: "标题", name: "title", widget: "string" }
+      - { label: "标签", name: "tags", widget: "list" }
+      - { label: "描述", name: "description" }
+      - { label: "Body", name: "body", widget: "markdown" }
