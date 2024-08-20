@@ -2,8 +2,8 @@ backend:
   name: github
   branch: main
   repo: serbia70/astro-paper-cms
-  site_domain: astro-paper-cms.vercel.app
-  base_url: https://astro-paper-cms.vercel.app/
+  site_domain: astro-paper-cms-rho.vercel.app
+  base_url: https://astro-paper-cms-rho.vercel.app/
   auth_endpoint: oauth
 
 media_folder: public/uploads
